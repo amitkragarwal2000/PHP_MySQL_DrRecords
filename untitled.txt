@@ -1,0 +1,49 @@
+$con=mysqli_connect("academic-mysql.cc.gatech.edu","cs4400_Group_20","UwBacqAh","cs4400_Group_20");
+// Check connection
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+
+$result = mysqli_query($con,"INSERT INTO User(Username, Password) VALUES (" + $_GET("username") + "," + $_GET('password')+ ")");
+mysqli_close($con);
+?>
+
+
+
+   Name: <input type="text" name="name">
+   <span class="error">* <?php echo $nameErr;?></span>
+   
+   
+   
+   "SELECT * FROM User WHERE Username=" +  + " AND Password=" + 
+   
+if($result[User_type] == 'a')
+{
+	$_SESSION[User_type] = 'Administrative_Personnel';
+	echo "testa";
+}
+if($result[User_type] == 'd')
+{
+	$_SESSION[User_type] = 'Doctor';
+	echo "testd";
+}
+if($result[User_type] == 'p')
+{
+	$_SESSION[User_type] = 'Patient';
+	echo "testp";
+}
+$test = $_SESSION[User_type];
+echo $result[User_type];
+$query = "SELECT Username FROM `Patient` WHERE `Username` = '$_SESSION[username]'";
+$result1 = mysqli_query($con, $query);
+
+
+	if($result1[username] == '') 
+	{
+		header("Location: https://academic-php.cc.gatech.edu/groups/cs4400_Group_20/chad_dev/CreateProfiles");
+	}
+	else
+	{
+		header("Location: https://academic-php.cc.gatech.edu/groups/cs4400_Group_20/chad_dev/HomePages");
+	}

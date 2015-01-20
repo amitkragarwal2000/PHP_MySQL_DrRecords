@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>Form Sample</title>
+	<link rel="stylesheet" href="normalize.css" />
+	<link rel="stylesheet" href="mystyle.css" />
+
+<!--[if lt IE 8]>
+	<style>
+		legend {
+			display: block;
+			padding: 0;
+			padding-top: 30px;
+			font-weight: bold;
+			font-size: 1.25em;
+			color: #FFD98D;
+			margin: 0 auto;
+		}
+	</style>
+<![endif]-->
+
+
+</head>
+<body>
+<form id="myform" name="theform" class="group" action="#" method="POST">
+	<fieldset id="Changes" title="Other Info">
+		<legend>Pop-up Navigation</legend>
+		<span id="formerror" class="error"></span>
+		<ol>
+			<li>
+				<label for="reference">Navigate to</label>
+				<select name="reference" id="reference">
+					<option>Choose...</option>
+					<option value="http://lynda.com/rayvillalobos">My Courses</option>
+					<option value="http://iviewsource.com">My Blog</option>
+					<option value="http://facebook.com/authoredcontent">My Podcast</option>
+				</select>
+			</li>
+			<li>
+				<button type="submit">send</button>
+			</li>
+		</ol>
+	</fieldset>
+</form>
+
+<script>
+	document.theform.reference.onchange = function() {
+		var id = document.theform.reference.selectedIndex;
+		var url = document.theform.reference[id].value;
+		window.location.href = url;
+	}
+</script>
+</body>
+</html>
